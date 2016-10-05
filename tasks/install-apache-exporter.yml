@@ -31,7 +31,7 @@
       command: /usr/local/go/bin/go get {{ prometheus_apache_exporter_git_url }}
       args:
         chdir: "{{ prometheus_install_path }}"
-        creates: apache_exporter
+        creates: apache_exporter/apache_exporter
       environment:
         GO15VENDOREXPERIMENT: 1
         GOROOT: "{{ apache_exporter_goroot }}"
@@ -45,12 +45,6 @@
 
 - name: set permissions, owner and group
   file: path={{ prometheus_apache_exporter_daemon_dir }}/apache_exporter owner={{ prometheus_user }} group={{ prometheus_group }} mode="go-w"
-
-- name: copy the built node_exporter to the install path
-  command: "cp {{ apache_exporter_gopath }}/bin/apache_exporter {{ prometheus_install_path }}/apache_exporter/"
-  args:
-    creates: "{{ prometheus_apache_exporter_daemon_dir }}"
-
 
 - name: set apache_exporter variables
   copy: src="etc-default-apache_exporter"  dest=/etc/default/apache_exporter
