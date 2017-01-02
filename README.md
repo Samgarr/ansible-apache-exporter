@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Built and run [Apache Exporter](https://github.com/neezgee/apache_exporter) for [Prometheus](https://prometheus.io). Roughly tested in production environmet.
+Built and run [Apache Exporter](https://github.com/neezgee/apache_exporter) for [Prometheus](https://prometheus.io). Roughly tested in production environment.
 Pull requests are welcomed.
 
 Requirements
