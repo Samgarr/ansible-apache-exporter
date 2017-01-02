@@ -11,4 +11,4 @@
 
 - name: install apache-exporter
   include: install-apache-exporter.yml
-  when: '"node_exporter" in prometheus_components'
+  when: '"apache_exporter" in prometheus_components'
